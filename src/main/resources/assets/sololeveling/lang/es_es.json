@@ -1,0 +1,13 @@
+{
+  "item.sololeveling.knight_killer": "Matacaballeros",
+  "item.sololeveling.demon_dagger": "Daga del Rey Demonio",
+  "itemGroup.sololeveling": "Solo Leveling",
+  "key.sololeveling.open": "Abrir el Sistema",
+  "key.categories.sololeveling": "Solo Leveling",
+  "gui.sololeveling.title": "[ EL SISTEMA ]",
+  "gui.sololeveling.str": "Fuerza",
+  "gui.sololeveling.agi": "Agilidad",
+  "gui.sololeveling.vit": "Vitalidad",
+  "gui.sololeveling.sense": "Sentidos",
+  "gui.sololeveling.int": "Inteligencia"
+}

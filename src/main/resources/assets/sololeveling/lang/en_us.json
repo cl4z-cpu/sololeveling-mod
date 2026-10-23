@@ -1,0 +1,13 @@
+{
+  "item.sololeveling.knight_killer": "Knight Killer",
+  "item.sololeveling.demon_dagger": "Demon King's Dagger",
+  "itemGroup.sololeveling": "Solo Leveling",
+  "key.sololeveling.open": "Open the System",
+  "key.categories.sololeveling": "Solo Leveling",
+  "gui.sololeveling.title": "[ THE SYSTEM ]",
+  "gui.sololeveling.str": "Strength",
+  "gui.sololeveling.agi": "Agility",
+  "gui.sololeveling.vit": "Vitality",
+  "gui.sololeveling.sense": "Sense",
+  "gui.sololeveling.int": "Intelligence"
+}
