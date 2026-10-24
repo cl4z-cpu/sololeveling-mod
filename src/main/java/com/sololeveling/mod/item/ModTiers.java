@@ -6,8 +6,8 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public enum ModTiers implements Tier {
-    KNIGHT_KILLER(2, 700, 8.0f, 1.0f, 12, () -> Ingredient.of(Items.IRON_INGOT)),
-    DEMON_KING(4, 2500, 9.0f, 3.0f, 18, () -> Ingredient.of(Items.NETHERITE_INGOT));
+    KNIGHT_KILLER(3, 1800, 8.0f, 5.0f, 15, () -> Ingredient.of(Items.IRON_INGOT)),
+    DEMON_KING(4, 6000, 9.0f, 7.0f, 25, () -> Ingredient.of(Items.NETHERITE_INGOT));
 
     private final int level, uses, enchant;
     private final float speed, damage;

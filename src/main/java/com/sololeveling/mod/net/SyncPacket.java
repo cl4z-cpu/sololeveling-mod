@@ -6,17 +6,18 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 
 public class SyncPacket {
+    private static final int N = 13;
     private final int[] v;
 
     public SyncPacket(int[] v) { this.v = v; }
 
     public static void encode(SyncPacket m, FriendlyByteBuf buf) {
-        for (int i = 0; i < 8; i++) buf.writeInt(m.v[i]);
+        for (int i = 0; i < N; i++) buf.writeInt(m.v[i]);
     }
 
     public static SyncPacket decode(FriendlyByteBuf buf) {
-        int[] a = new int[8];
-        for (int i = 0; i < 8; i++) a[i] = buf.readInt();
+        int[] a = new int[N];
+        for (int i = 0; i < N; i++) a[i] = buf.readInt();
         return new SyncPacket(a);
     }
 

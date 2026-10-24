@@ -47,17 +47,22 @@ public class PlayerStats {
         return "S";
     }
 
-    /** [nivel, xp, puntos, str, agi, vit, sense, int] */
+    /** [0 nivel, 1 xp, 2 puntos, 3-7 stats, 8 oro, 9 mision activa, 10 progreso, 11 objetivo, 12 segundos] */
     public static int[] toArray(Player p) {
-        int[] a = new int[8];
+        int[] a = new int[13];
         a[0] = level(p); a[1] = get(p, "xp"); a[2] = get(p, "points");
         for (int i = 0; i < 5; i++) a[3 + i] = get(p, KEYS[i]);
+        a[8] = get(p, "gold");
+        a[9] = get(p, "q_active");
+        a[10] = get(p, "q_prog");
+        a[11] = get(p, "q_target");
+        a[12] = get(p, "q_time");
         return a;
     }
 
     public static void addXp(ServerPlayer p, int amount) {
         int lvl = level(p);
-        if (lvl >= MAX_LEVEL) return;
+        if (lvl >= MAX_LEVEL) { ModNetwork.sync(p); return; }
         int xp = get(p, "xp") + amount;
         boolean up = false;
         while (lvl < MAX_LEVEL && xp >= xpNeeded(lvl)) {
@@ -74,6 +79,13 @@ public class PlayerStats {
             p.playNotifySound(SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 1f, 1f);
         }
         ModNetwork.sync(p);
+    }
+
+    public static void resetStats(Player p) {
+        int total = 0;
+        for (String k : KEYS) { total += get(p, k); set(p, k, 0); }
+        set(p, "points", get(p, "points") + total);
+        apply(p);
     }
 
     public static void apply(Player p) {

@@ -9,7 +9,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModNetwork {
-    private static final String V = "1";
+    private static final String V = "2";
     public static final SimpleChannel CH = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SoloLevelingMod.MODID, "main"), () -> V, V::equals, V::equals);
 
@@ -17,6 +17,8 @@ public class ModNetwork {
         int id = 0;
         CH.registerMessage(id++, SyncPacket.class, SyncPacket::encode, SyncPacket::decode, SyncPacket::handle);
         CH.registerMessage(id++, AllocatePacket.class, AllocatePacket::encode, AllocatePacket::decode, AllocatePacket::handle);
+        CH.registerMessage(id++, BuyPacket.class, BuyPacket::encode, BuyPacket::decode, BuyPacket::handle);
+        CH.registerMessage(id++, QuestPacket.class, QuestPacket::encode, QuestPacket::decode, QuestPacket::handle);
     }
 
     public static void sync(ServerPlayer p) {
